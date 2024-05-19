@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h2>Reango Search</h2>
-        <p>Enter a countries name to get back a list of its names across the world.</p>
+        <p>Enter a country's name to get back a list of its names across the world.</p>
         <CountrySearch setCountry={setCountry} setTranslations={setTranslations}/>
         <CountryDisplay country={country} translations={translations}/>
       </header>

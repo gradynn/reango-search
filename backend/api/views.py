@@ -29,9 +29,16 @@ def search(request, country_name):
     if not country_data:
         return Response({ 'message': "Country not found in dataset" }, status=status.HTTP_404_NOT_FOUND)
     
-    response = {}
+    response = []
     for cca3 in country_data.keys():
         common_name = helpers.search_cca3(data, cca3)
-        response[common_name] = country_data[cca3]
+        if not common_name:
+            response.append({
+                cca3: country_data[cca3]
+            })
+        else:
+            response.append({
+                common_name: country_data[cca3]
+            })
 
     return Response(response)

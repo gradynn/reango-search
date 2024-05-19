@@ -1,22 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
+import CountryDisplay from './components/CountryDisplay/CountryDisplay';
+import CountrySearch from './components/CountrySearch/CountrySearch';
 
 function App() {
+  const [translations, setTranslations] = useState([]);
+  const [country, setCountry] = useState('');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>Reango Search</h2>
+        <p>Enter a countries name to get back a list of its names across the world.</p>
+        <CountrySearch setCountry={setCountry} setTranslations={setTranslations}/>
+        <CountryDisplay country={country} translations={translations}/>
       </header>
     </div>
   );
